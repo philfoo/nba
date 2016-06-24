@@ -1,0 +1,22 @@
+{
+  "name": "nba",
+  "version": "1.0.0",
+  "description": "NBA stats application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philfoo/nba.git"
+  },
+  "author": "Philip Foo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philfoo/nba/issues"
+  },
+  "homepage": "https://github.com/philfoo/nba#readme",
+  "dependencies": {
+    "request": "^2.72.0"
+  }
+}
