@@ -1,5 +1,6 @@
 const request = require('request');
 const async = require('async');
+const http = require('http');
 const utils = require('./utils').utils;
 const MongoClient = require('mongodb').MongoClient;
 const app = require('express');
@@ -34,7 +35,7 @@ var myInterval = setInterval(function(){
     i++;
 }, 11*1000);
 
-app.set('port', (process.env.PORT || 5000));
+http.createServer(app).listen(process.env.port || 5000);
 
 
 
