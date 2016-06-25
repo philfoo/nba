@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/philfoo/nba#readme",
   "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "mongodb": "^2.1.18",
     "request": "^2.72.0"
   }
 }
