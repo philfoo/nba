@@ -21,6 +21,7 @@ var utils = {
     },
 
     queryXMLEvents: function(date, callback){
+        console.log("Date: " + date);
         var eventsUrl = 'https://erikberg.com/events.json?date=' + date + '&sport=nba';
         var eventIds = [];
         request.get({
@@ -83,7 +84,7 @@ var utils = {
                     + process.env.MONGO_USER 
                     + ":" 
                     + process.env.MONGO_PASSWORD 
-                    + "@ds023054.mlab.com:23054/heroku_g83bgn25";
+                    + "@ds023704.mlab.com:23704/heroku_vkpt6gz1";
 
         MongoClient.connect(mongo_url, function(err, db){
             var collection = db.collection('nba_games');

@@ -3,7 +3,7 @@ const async = require('async');
 const utils = require('./utils').utils;
 const MongoClient = require('mongodb').MongoClient;
 
-var currentDate = new Date('December 16, 2011 00:00:00');
+var currentDate = new Date('June 16, 2016 00:00:00');
 var endingDate = new Date('June 21, 2016 00:00:00');
 
 //Go through all dates, grab events array
@@ -28,7 +28,7 @@ var myInterval = setInterval(function(){
         for(var j = 0; j < dayArray.length; j++){
             eventIdArray.push(dayArray[j]);
         }   
-        console.log(eventIdArray);
+        //console.log(eventIdArray);
     });
     i++;
 }, 11*1000);
