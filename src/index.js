@@ -2,6 +2,7 @@ const request = require('request');
 const async = require('async');
 const utils = require('./utils').utils;
 const MongoClient = require('mongodb').MongoClient;
+const express = require('express');
 
 var currentDate = new Date('December 16, 2011 00:00:00');
 var endingDate = new Date('June 21, 2016 00:00:00');
@@ -33,6 +34,7 @@ var myInterval = setInterval(function(){
     i++;
 }, 11*1000);
 
+app.set('port', (process.env.PORT || 5000));
 
 
 
