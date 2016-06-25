@@ -1,9 +1,9 @@
 const request = require('request');
 const async = require('async');
-const http = require('http');
 const utils = require('./utils').utils;
 const MongoClient = require('mongodb').MongoClient;
-const app = require('express');
+const express = require('express');
+var app = express();
 
 var currentDate = new Date('December 16, 2011 00:00:00');
 var endingDate = new Date('June 21, 2016 00:00:00');
@@ -35,7 +35,14 @@ var myInterval = setInterval(function(){
     i++;
 }, 11*1000);
 
-http.createServer(app).listen(process.env.port || 5000);
+app.set('port', (process.env.PORT || 5000));
+
+app.get('/', function(request, response){
+    var result = "App is running";
+    response.send(result);
+}).listen(app.get('port'), function(){
+    console.log('App is running, server is listening');
+});
 
 
 
