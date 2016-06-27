@@ -37,7 +37,11 @@ var utils = {
             else{
                 var eventsArray = JSON.parse(body).event;
                 for (var i = 0; i < eventsArray.length; i++){
-                    eventIds.push(eventsArray[i].event_id);
+                    var event = eventsArray[i];
+                    if (event.event_status === 'completed' && event.season_type !== 'pre'){
+                        eventIds.push(event.event_id);
+                        console.log("Pushing " + event.event_id);
+                    }
                 }
                 callback(eventIds);
             }
