@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: data-transfer
+  host: data-transfer
+  disk_quota: 1024M
+  env:
+    TOKEN: 3287060d-5c0a-43f3-9936-70a89465e888
+    MONGO_USER: phil
+    MONGO_PASSWORD: pineapple
