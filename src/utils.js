@@ -36,6 +36,9 @@ var utils = {
             }
             else{
                 var eventsArray = JSON.parse(body).event;
+                if(eventsArray == undefined){
+                    return;
+                }
                 for (var i = 0; i < eventsArray.length; i++){
                     var event = eventsArray[i];
                     if (event.event_status === 'completed' && event.season_type !== 'pre'){
@@ -79,7 +82,7 @@ var utils = {
 
             index++;
 
-        }, 11*1000)
+        }, 13*1000)
 
     },
 

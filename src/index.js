@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const express = require('express');
 var app = express();
 
-var currentDate = new Date('December 16, 2011 00:00:00');
+var currentDate = new Date('December 24, 2011 00:00:00');
 var endingDate = new Date('June 21, 2016 00:00:00');
 
 //Go through all dates, grab events array
