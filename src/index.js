@@ -17,7 +17,6 @@ while(currentDate.getTime() < endingDate.getTime()){
     currentDate = utils.getNextDate(currentDate);
 };
 
-
 var i = 0;
 var eventIdArray = [];
 var myInterval = setInterval(function(){
@@ -43,6 +42,8 @@ app.get('/', function(request, response){
 }).listen(app.get('port'), function(){
     console.log('App is running, server is listening');
 });
+
+
 
 
 
