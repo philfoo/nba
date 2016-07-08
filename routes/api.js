@@ -2,13 +2,14 @@ const express = require('express');
 const request = require('request');
 const router = express.Router();
 const utils = require('../src/utils.js').utils;
+const stats = require('../lib/stats.js').stats;
 const MongoClient = require('mongodb').MongoClient;
 const tools = require('../lib/tools.js').tools;
 const mongoUrl = 'mongodb://' 
-                    + 'phil'
-                    + ":" 
-                    + 'test'
-                    + "@ds047930.mlab.com:47930/heroku_vs8g6249";
+                + process.env.MONGO_USER 
+                + ":" 
+                + process.env.MONGO_PASSWORD 
+                + "@ds023704.mlab.com:23704/heroku_vkpt6gz1";
 
 
 /*Date is in format YYYYMMDD*/
@@ -17,7 +18,7 @@ router.get('/date/:date', function(req, res){
     var validity = tools.checkValidDate(date);
     if (validity === 'Valid'){
         MongoClient.connect(mongoUrl, function(err, db){
-            var collection = db.collection('nba_test');
+            var collection = db.collection('nba_games');
             var cursor = collection.find({event_id: {$regex: date}});
             cursor.toArray(function(err, documents){
                 if (err){
@@ -31,6 +32,19 @@ router.get('/date/:date', function(req, res){
         res.status(400).send(validity);
     }
     
+});
+
+router.get('/notableplayers/:date', function(req, res){
+    var date = req.params.date;
+    request.get({
+        url: 'http://localhost:' + (process.env.PORT || '8080') + '/api/date/' + date
+    }, function(error, response, body){
+        if (error){
+            console.log("There was an error");
+        }else{
+            console.log("We win boys");
+        }
+    })
 });
 
 router.get('/player/:player', function(req, res){
