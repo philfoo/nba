@@ -1,7 +1,7 @@
 const express = require('express');
 const request = require('request');
 const router = express.Router();
-const utils = require('../src/utils.js').utils;
+const utils = require('../script/utils.js').utils;
 const stats = require('../lib/stats.js').stats;
 const MongoClient = require('mongodb').MongoClient;
 const tools = require('../lib/tools.js').tools;
@@ -31,7 +31,6 @@ router.get('/date/:date', function(req, res){
     }else{
         res.status(400).send(validity);
     }
-    
 });
 
 router.get('/notableplayers/:date/sortby/:mode', function(req, res){
@@ -47,6 +46,21 @@ router.get('/notableplayers/:date/sortby/:mode', function(req, res){
             var playersArray = tools.getAllPlayers(JSON.parse(body));
             var sortedArray = tools.sortPlayersBy(playersArray, mode);
             res.status(400).send(sortedArray);
+        }
+    })
+});
+
+router.get('/games/:date', function(req, res){
+    console.log("Games endpoint");
+    var date = req.params.date;
+    request.get({
+        url: 'http://localhost:' + (process.env.PORT || '8080') + '/api/date/' + date
+    }, function(error, response, body){
+        if (error){
+            console.log("There was an error");
+        }else{
+            var gamesArray = tools.buildGamesArray(JSON.parse(body));
+            res.send(gamesArray);
         }
     })
 });
