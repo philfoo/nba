@@ -35,6 +35,7 @@ router.get('/date/:date', function(req, res){
 });
 
 router.get('/notableplayers/:date', function(req, res){
+    console.log("Notable players endpoint");
     var date = req.params.date;
     request.get({
         url: 'http://localhost:' + (process.env.PORT || '8080') + '/api/date/' + date
@@ -56,6 +57,7 @@ router.get('/player/:player', function(req, res){
 
 /*Date is in format "YYYYMMDD"*/
 router.get('/reddit/:date', function(req, res){
+    console.log("Reddit endpoint");
     var date = tools.formatIntoDate(req.params.date);
     if (date == null){
         res.send("Error, incorrect date format");
