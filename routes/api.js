@@ -42,7 +42,9 @@ router.get('/notableplayers/:date', function(req, res){
         if (error){
             console.log("There was an error");
         }else{
-            console.log("We win boys");
+            var playersArray = tools.getAllPlayers(JSON.parse(body));
+            var sortedArray = tools.sortPlayersByRating(playersArray);
+            res.send(sortedArray);
         }
     })
 });
