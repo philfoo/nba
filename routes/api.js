@@ -34,9 +34,10 @@ router.get('/date/:date', function(req, res){
     
 });
 
-router.get('/notableplayers/:date', function(req, res){
+router.get('/notableplayers/:date/sortby/:mode', function(req, res){
     console.log("Notable players endpoint");
     var date = req.params.date;
+    var mode = req.params.mode;
     request.get({
         url: 'http://localhost:' + (process.env.PORT || '8080') + '/api/date/' + date
     }, function(error, response, body){
@@ -44,8 +45,8 @@ router.get('/notableplayers/:date', function(req, res){
             console.log("There was an error");
         }else{
             var playersArray = tools.getAllPlayers(JSON.parse(body));
-            var sortedArray = tools.sortPlayersByRating(playersArray);
-            res.send(sortedArray);
+            var sortedArray = tools.sortPlayersBy(playersArray, mode);
+            res.status(400).send(sortedArray);
         }
     })
 });
