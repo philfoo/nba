@@ -12,39 +12,51 @@ const mongoUrl = 'mongodb://'
                 + "@ds023704.mlab.com:23704/heroku_vkpt6gz1";
 
 
-/*Date is in format YYYYMMDD*/
+/*Endpoint that retrieves all of the game information for all the games
+given a certain date parameter.
+@param {String} date: String in format yyyymmdd*/
 router.get('/date/:date', function(req, res){
-    var date = req.params.date;
-    var validity = tools.checkValidDate(date);
-    if (validity === 'Valid'){
-        MongoClient.connect(mongoUrl, function(err, db){
-            var collection = db.collection('nba_games');
-            var cursor = collection.find({event_id: {$regex: date}});
-            cursor.toArray(function(err, documents){
-                if (err){
-                    console.log("There was an error");
-                }else{
-                    res.status(200).send(documents);
-                }
-            });
-        });
-    }else{
-        res.status(400).send(validity);
+    const date = req.params.date;
+    const dateStatus = tools.checkValidDate(date);
+    if (dateStatus !== "Valid"){
+        res.status(400).send(dateStatus);
     }
+    MongoClient.connect(mongoUrl, function(err, db){
+        const collection = db.collection('nba_games');
+        const cursor = collection.find({event_id: {$regex: date}});
+        cursor.toArray(function(error, documents){
+            if (error){
+                console.log("There was an error");
+                res.status(400).send(error);
+            }else{
+                res.status(200).send(documents);
+            }
+        });
+    });
 });
 
+/*Endpoint that retrieves notable players sorted by a category.
+Regular as mode returns overall best players in all categories.
+@param {String} date: String in format yyyymmdd
+@param {String} mode: Category to sort by. E.g. "rebounds", "points", "blocks", "regular"
+*/
 router.get('/notableplayers/:date/sortby/:mode', function(req, res){
     console.log("Notable players endpoint");
-    var date = req.params.date;
-    var mode = req.params.mode;
+    const date = req.params.date;
+    const mode = req.params.mode;
+    const dateStatus = tools.checkValidDate(date);
+    if (dateStatus !== "Valid"){
+        res.status(400).send(dateStatus);
+    }
     request.get({
         url: 'http://localhost:' + (process.env.PORT || '8080') + '/api/date/' + date
     }, function(error, response, body){
         if (error){
             console.log("There was an error");
+            res.status(400).send(error)
         }else{
-            var playersArray = tools.getAllPlayers(JSON.parse(body));
-            var sortedArray = tools.sortPlayersBy(playersArray, mode);
+            const playersArray = tools.getAllPlayers(JSON.parse(body));
+            const sortedArray = tools.sortPlayersBy(playersArray, mode);
             res.status(400).send(sortedArray);
         }
     })
