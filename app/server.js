@@ -15,6 +15,7 @@ app.get('/', function(req, res){
     console.log("Home page visited");
 });
 
+app.use(express.static(__dirname + '/../client'));
 /*Handle routes for the apis*/
 app.use('/api', api);
 
