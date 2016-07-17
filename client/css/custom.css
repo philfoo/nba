@@ -1,0 +1,51 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+#wrapper .container-fluid {
+	padding-left: 0px;
+	height: 100%;
+}
+
+.row {
+	height: 100%;
+}
+
+.col-md-2{
+	height: 100%;
+	padding-right: 0px;
+}
+
+.col-md-3{
+	padding-right: 0px;
+	height: 100%;
+	padding-left: 0px;
+}
+
+.col-md-9 {
+	padding-right: 0px;
+	height: 100%;
+}
+
+.col-md-10{
+	height: 100%;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.panel {
+	margin-bottom: 0px;
+	overflow: hidden;
+}
+
+.panel-body {
+	height: 100%;
+	padding: 0px;
+	overflow-y: auto;
+}
+
+

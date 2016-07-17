@@ -2,12 +2,16 @@
 <html>
     <head>
         <title>The FCP</title>
-        <script src = "./client/react/build/react.js"></script>
-        <script src = "./client/react/build/react-dom.js"></script>
+        <script src="https://fb.me/react-15.2.1.js"></script>
+        <script src="https://fb.me/react-dom-15.2.1.js"></script>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+        <link rel = "stylesheet" href = "./client/css/custom.css">
+        <link rel = "stylesheet" href = "./client/css/styles.css">
     </head>
     <body>
+        <div id = "content"></div>
         <div id = "wrapper"></div>
-        <script type = "text/babel" src = "./dist/src/build.js"></script>
+        <script type = "text/babel" src = "./dist/bundle.js"></script>
     </body>
 </html>

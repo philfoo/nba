@@ -1,0 +1,52 @@
+html, body {
+	height: 100%;
+}
+
+#wrapper {
+	height: calc(100% - 55px);
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+#content {
+
+}
+
+.left-sidebar {
+	border: 1px solid black;
+	width: 100%;
+	height: 100%;
+}
+
+.main-content {
+	/*border: 1px solid red;*/
+	width: calc(100% - 5px);
+	height: 100%;
+	margin-left: 5px;
+}
+
+.player-row{
+	height: 30%;
+	/*border: 1px solid black;*/
+	margin-left: 0px;
+	margin-bottom: 5px;
+}
+
+.players-panel {
+	height: 100%;
+	/*border: 1px solid black;*/
+}
+
+.lower-row{
+	height: calc(70% - 5px);
+}
+
+.videos-panel{
+	height: 100%;
+}
+
+.reddit-panel{
+	height: 100%;
+	margin-left: 5px;
+}
