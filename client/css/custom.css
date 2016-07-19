@@ -13,11 +13,13 @@
 
 .row {
 	height: 100%;
+	margin-left: 0px;
 }
 
 .col-md-2{
 	height: 100%;
 	padding-right: 0px;
+	padding-left: 0px;
 }
 
 .col-md-3{
@@ -29,6 +31,7 @@
 .col-md-9 {
 	padding-right: 0px;
 	height: 100%;
+	padding-left: 0px;
 }
 
 .col-md-10{

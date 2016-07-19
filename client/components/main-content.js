@@ -17,7 +17,7 @@ var MainContent = React.createClass({
             <Row className = "lower-row">
               <Col md = {9}>
                 <Panel header = "Videos" bsStyle = "success" className = "videos-panel">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/-gQRlUHB1vU" frameborder="0" allowfullscreen></iframe>
+                  <iframe width="600" height="400" src="https://www.youtube.com/embed/-gQRlUHB1vU" frameBorder="0" allowFullScreen = "allowfullscreen"></iframe>
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/-gQRlUHB1vU" frameborder="0" allowfullscreen></iframe>
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/-gQRlUHB1vU" frameborder="0" allowfullscreen></iframe>
                 </Panel>

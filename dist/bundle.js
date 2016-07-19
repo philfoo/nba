@@ -50,7 +50,7 @@ var MainContent = React.createClass({
             React.createElement(
               Panel,
               { header: 'Videos', bsStyle: 'success', className: 'videos-panel' },
-              React.createElement('iframe', { width: '560', height: '315', src: 'https://www.youtube.com/embed/-gQRlUHB1vU', frameborder: '0', allowfullscreen: true }),
+              React.createElement('iframe', { width: '600', height: '400', src: 'https://www.youtube.com/embed/-gQRlUHB1vU', frameBorder: '0', allowFullScreen: 'allowfullscreen' }),
               React.createElement('iframe', { width: '560', height: '315', src: 'https://www.youtube.com/embed/-gQRlUHB1vU', frameborder: '0', allowfullscreen: true }),
               React.createElement('iframe', { width: '560', height: '315', src: 'https://www.youtube.com/embed/-gQRlUHB1vU', frameborder: '0', allowfullscreen: true })
             )

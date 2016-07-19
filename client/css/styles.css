@@ -6,7 +6,6 @@ html, body {
 	height: calc(100% - 55px);
 	margin-top: 5px;
 	margin-bottom: 5px;
-	margin-right: 5px;
 }
 
 #content {
@@ -19,11 +18,12 @@ html, body {
 	height: 100%;
 }
 
-.main-content {
+.main-content{
 	/*border: 1px solid red;*/
-	width: calc(100% - 5px);
+	width: calc(100% - 10px);
 	height: 100%;
 	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .player-row{
@@ -49,4 +49,12 @@ html, body {
 .reddit-panel{
 	height: 100%;
 	margin-left: 5px;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	.reddit-panel{
+		margin-left: 0px;
+		margin-top: 5px;
+	}
 }
