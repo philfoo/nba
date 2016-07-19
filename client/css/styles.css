@@ -12,6 +12,10 @@ html, body {
 
 }
 
+#date {
+	display: none;
+}
+
 .left-sidebar {
 	border: 1px solid black;
 	width: 100%;

@@ -6,6 +6,10 @@ var LeftSidebar = require('./left-sidebar.js');
 var MainContent = require('./main-content.js');
 
 var MainWrapper = React.createClass({
+  componentDidMount: function(){
+    console.log(this.props.date);
+  },
+
   render: function(){
     return(
       <Grid fluid = "true">
@@ -14,7 +18,7 @@ var MainWrapper = React.createClass({
             <LeftSidebar/>
           </Col>
           <Col md = {10}>
-            <MainContent/>
+            <MainContent date = {this.props.date}/>
           </Col>
         </Row>
       </Grid>

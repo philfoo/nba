@@ -39,6 +39,7 @@
     "gulp-streamify": "^1.0.2",
     "gulp-uglify": "^1.5.4",
     "mongodb": "^2.1.18",
+    "pug": "^2.0.0-beta4",
     "react": "^15.2.1",
     "react-bootstrap": "^0.29.5",
     "react-dom": "^15.2.1",
